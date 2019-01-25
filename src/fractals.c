@@ -6,7 +6,7 @@
 /*   By: arudyi <arudyi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:24:15 by arudyi            #+#    #+#             */
-/*   Updated: 2019/01/25 19:17:08 by arudyi           ###   ########.fr       */
+/*   Updated: 2019/01/25 20:41:41 by arudyi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,15 +110,15 @@ void	ft_divide_ft_fractal(t_addition *data)
 		data->z_im = 2 * data->z_re * data->z_im + data->c_im;
 		data->z_re = data->z_re2 - data->z_im2 + data->c_re;
 	}
-	if (data->type == 2)
+	else if (data->type == 2)
 	{
 		data->z_im = 2 * data->z_re * data->z_im + data->mousex;
 		data->z_re = data->z_re2 - data->z_im2 + data->mousey;
 	}
-	if (data->type == 3)
+	else if (data->type == 3)
 	{
 		data->z_im = fabs(2 * data->z_re * data->z_im) + data->c_im;
-		data->z_re = fabs(data->z_re2 - data->z_im2) + data->c_re;
+		data->z_re = (data->z_re2 - data->z_im2) + data->c_re;
 	}
 }
 

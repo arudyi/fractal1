@@ -6,7 +6,7 @@
 /*   By: arudyi <arudyi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 16:13:39 by arudyi            #+#    #+#             */
-/*   Updated: 2019/01/25 19:23:20 by arudyi           ###   ########.fr       */
+/*   Updated: 2019/01/25 21:05:34 by arudyi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		ft_main_draw(t_elem *s_pixel)
 	s_pixel->img_ptr, 0, 0);
 	mlx_hook(s_pixel->win_ptr, 2, 5, ft_check_key, s_pixel);
 	mlx_hook(s_pixel->win_ptr, 4, 5, mouse_press, s_pixel);
+	mlx_hook(s_pixel->win_ptr, 5, 5, mouse_release, s_pixel);
 	mlx_hook(s_pixel->win_ptr, 6, 5, mouse_move, s_pixel);
 	mlx_loop(s_pixel->mlx_ptr);
 	return (0);
@@ -42,6 +43,8 @@ int		ft_start_programm(t_elem *s_pixel, int type)
 	s_pixel->mlx_ptr = mlx_init();
 	s_pixel->pthread = 1;
 	s_pixel->i = 1;
+	s_pixel->press = 0;
+	s_pixel->maxiterations = 50;
 	ft_draw_display(s_pixel);
 	ft_prepare_fractal(s_pixel);
 	return (0);
@@ -65,7 +68,6 @@ int		main(int ac, char **av)
 		else
 		{
 			write(1, "error! please type: mal, jul or ship\n", 37);
-			system("leaks fractal");
 			return (0);
 		}
 		if (!(s_pixel = (t_elem *)malloc(sizeof(t_elem))))
@@ -73,6 +75,5 @@ int		main(int ac, char **av)
 		return (ft_start_programm(s_pixel, type));
 	}
 	write(1, "error! please type: mal, jul or ship\n", 37);
-	system("leaks fractal");
 	return (0);
 }

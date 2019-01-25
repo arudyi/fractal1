@@ -6,7 +6,7 @@
 /*   By: arudyi <arudyi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 16:15:17 by arudyi            #+#    #+#             */
-/*   Updated: 2019/01/25 19:13:40 by arudyi           ###   ########.fr       */
+/*   Updated: 2019/01/25 20:21:45 by arudyi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct		s_elem
 	char			*tmp2;
 	double			center_re;
 	double			center_im;
+	int				press;
 }					t_elem;
 
 typedef struct		s_addition
@@ -107,6 +108,7 @@ typedef struct		s_addition
 	int				i;
 }					t_addition;
 
+int					mouse_release(int button, int x, int y, t_elem *s_pixel);
 int					mouse_press(int button, int x, int y, t_elem *s_pixel);
 int					ft_check_key(int key, t_elem *s_pixel);
 void				ft_divide_ft_fractal(t_addition *data);

@@ -6,11 +6,11 @@
 #    By: arudyi <arudyi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/16 17:26:55 by arudyi            #+#    #+#              #
-#    Updated: 2019/01/25 17:36:30 by arudyi           ###   ########.fr        #
+#    Updated: 2019/01/25 20:40:42 by arudyi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractal
+NAME = fractol
 
 SRC_DIR = ./src/
 OBJ_DIR = ./obj/
@@ -22,7 +22,7 @@ LIBFT = $(LIBFT_DIR)libft.a
 LIBFT_DIR := $(LIB_DIR)libft/
 LIBFT_INC := $(LIBFT_DIR)includes/
 LIBFT_FLAGS := -lft -L $(LIBFT_DIR)
-CC_FLAGS = -Ofast -mtune=native -Wall -Werror -Wextra
+CC_FLAGS = -O2 -mtune=native -Wall -Werror -Wextra
 LINK_FLAGS := $(LIBFT_FLAGS)
 HEADER_FLAGS := -I $(INCLUDE_DIR) -I $(LIBFT_INC) 
 CC := gcc

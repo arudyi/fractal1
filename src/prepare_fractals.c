@@ -6,7 +6,7 @@
 /*   By: arudyi <arudyi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:27:26 by arudyi            #+#    #+#             */
-/*   Updated: 2019/01/25 19:09:23 by arudyi           ###   ########.fr       */
+/*   Updated: 2019/01/25 20:50:09 by arudyi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_prepare_fractal(t_elem *s_p)
 	(s_p->imagewidth - 1);
 	s_p->im_factor = (s_p->maxim - s_p->minim) /
 	(s_p->imageheight - 1);
-	s_p->maxiterations = 100;
 	s_p->x = -1;
 	s_p->y = -1;
 	s_p->n = -1;
@@ -43,7 +42,6 @@ void	ft_prepare_fractal_change(t_elem *s_p)
 	(s_p->imagewidth - 1);
 	s_p->im_factor = (s_p->maxim - s_p->minim) /
 	(s_p->imageheight - 1);
-	s_p->maxiterations = 100;
 	s_p->x = -1;
 	s_p->y = -1;
 	s_p->n = -1;
@@ -65,7 +63,7 @@ void	ft_string_inter(t_elem *s_p)
 	free(s_p->str);
 	free(s_p->tmp2);
 	s_p->str = s_p->tmp;
-	s_p->tmp = ft_strjoin(s_p->str, " minim  = ");
+	s_p->tmp = ft_strjoin(s_p->str, " minim = ");
 	free(s_p->str);
 	s_p->str = s_p->tmp;
 	s_p->tmp2 = ft_itoa(s_p->minim);
@@ -75,21 +73,21 @@ void	ft_string_inter(t_elem *s_p)
 	s_p->str = s_p->tmp;
 	s_p->tmp = ft_strjoin(s_p->str, " maxim = ");
 	free(s_p->str);
+	s_p->str = s_p->tmp;
+	s_p->tmp2 = ft_itoa(s_p->maxim);
+	s_p->tmp = ft_strjoin(s_p->str, s_p->tmp2);
 	ft_string_inter1(s_p);
 }
 
 void	ft_string_inter1(t_elem *s_p)
 {
-	s_p->str = s_p->tmp;
-	s_p->tmp2 = ft_itoa(s_p->maxim);
-	s_p->tmp = ft_strjoin(s_p->str, s_p->tmp2);
 	free(s_p->str);
 	free(s_p->tmp2);
 	s_p->str = s_p->tmp;
-	s_p->tmp = ft_strjoin(s_p->str, " zoom = ");
+	s_p->tmp = ft_strjoin(s_p->str, " maxiterations = ");
 	free(s_p->str);
 	s_p->str = s_p->tmp;
-	s_p->tmp2 = ft_itoa(s_p->zoom);
+	s_p->tmp2 = ft_itoa(s_p->maxiterations);
 	s_p->tmp = ft_strjoin(s_p->str, s_p->tmp2);
 	free(s_p->str);
 	free(s_p->tmp2);
@@ -102,8 +100,7 @@ void	ft_string_inter1(t_elem *s_p)
 	free(s_p->str);
 	free(s_p->tmp2);
 	s_p->str = s_p->tmp;
-	mlx_string_put(s_p->mlx_ptr, s_p->win_ptr, 50, 750, 0xFFFFFF,
-	s_p->str);
+	mlx_string_put(s_p->mlx_ptr, s_p->win_ptr, 50, 750, 0xFFFFFF, s_p->str);
 	free(s_p->str);
 }
 
